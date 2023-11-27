@@ -69,15 +69,21 @@ function onImgClick(event) {
 		return;
 	}
 	const imgSource = event.target.dataset.source;
-	const instance = basicLightbox.create(`
+	const instance = basicLightbox.create(
+		`
     <img src= ${imgSource} width="800" height="600">
-`);
+`,
+		// {
+		//   onShow: (instance) => {console.log(instance);},
+		//   onClose: (instance) => {console.log(instance);}
+		// },
+	);
 
 	instance.show();
 	// console.log(event.target.dataset.source);
 
 	window.addEventListener("keydown", event => {
-		if (event.code === "Space") {
+		if (event.code === "Escape") {
 			instance.close();
 		}
 	});
